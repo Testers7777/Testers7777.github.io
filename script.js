@@ -75,7 +75,8 @@ I tend to lose interest quickly — except when it truly matters.`,
   };
 
   if (e.key === "Enter") {
-    if (terminalA[e.target.value]) {
+    const unValue = e.target.value.toLowerCase();
+    if (terminalA[unValue]) {
       const base = document.querySelector(".base");
 
       let newTerminalPR = document.createElement("span");
@@ -96,7 +97,7 @@ I tend to lose interest quickly — except when it truly matters.`,
       cmds.className = "cmds";
       newTerminalPR.className = "answer";
 
-      newTerminalPR.innerHTML = terminalA[e.target.value];
+      newTerminalPR.innerHTML = terminalA[unValue];
       cd.textContent = oldCd.textContent;
 
       base.append(newTerminalPR);
