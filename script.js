@@ -70,15 +70,13 @@ document.addEventListener("keydown", (e) => {
       <a href="https://t.me/cpaskrtapeur">https://t.me/cpaskrtapeur</a>`,
     about: `French.<br>
 Front-end developer aiming to become full-stack.<br>
-Passionate about running and coding.<br>
-I tend to lose interest quickly — except when it truly matters.`,
+I tend to lose interest quickly.`,
   };
 
   if (e.key === "Enter") {
     const unValue = e.target.value.toLowerCase();
+    const base = document.querySelector(".base");
     if (terminalA[unValue]) {
-      const base = document.querySelector(".base");
-
       let newTerminalPR = document.createElement("span");
       let inputLine = document.createElement("div");
       let cd = document.createElement("span");
@@ -107,6 +105,27 @@ I tend to lose interest quickly — except when it truly matters.`,
       inputLine.append(cmds);
 
       cmds.focus();
+    } else if (unValue == "clear") {
+      const spans = document.querySelectorAll(".answer");
+      const inputLine2 = document.querySelectorAll(".input-line");
+
+      spans.forEach((span) => span.remove());
+      inputLine2.forEach((line) => line.remove());
+
+      let inputLine = document.createElement("div");
+      let cd = document.createElement("span");
+      let cursor = document.createElement("span");
+      let cmds = document.createElement("input");
+      inputLine.className = "input-line";
+      cd.className = "cd";
+      cursor.className = "cursor";
+      cmds.className = "cmds";
+      cd.textContent = "C:\Users\Testers7777>";
+
+      base.append(inputLine);
+      inputLine.append(cd);
+      inputLine.append(cursor);
+      inputLine.append(cmds);
     }
   }
 });
