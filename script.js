@@ -93,6 +93,7 @@ I tend to lose interest quickly.`,
       cd.className = "cd";
       cursor.className = "cursor";
       cmds.className = "cmds";
+      cmds.maxLength = "9";
       newTerminalPR.className = "answer";
 
       newTerminalPR.innerHTML = terminalA[unValue];
@@ -120,12 +121,52 @@ I tend to lose interest quickly.`,
       cd.className = "cd";
       cursor.className = "cursor";
       cmds.className = "cmds";
-      cd.textContent = "C:\Users\Testers7777>";
+      cmds.maxLength = "9";
+      cd.textContent = "C:\\Users\\Testers7777>";
 
       base.append(inputLine);
       inputLine.append(cd);
       inputLine.append(cursor);
       inputLine.append(cmds);
+
+      cmds.focus();
+    } else {
+      let newTerminalPR = document.createElement("span");
+      let inputLine = document.createElement("div");
+      let cd = document.createElement("span");
+      let cursor = document.createElement("span");
+      let cmds = document.createElement("input");
+
+      const oldCursor = document.querySelector(".cursor");
+      const oldCd = document.querySelector(".cd");
+
+      e.target.disabled = true;
+      oldCursor.remove();
+
+      inputLine.className = "input-line";
+      cd.className = "cd";
+      cursor.className = "cursor";
+      cmds.className = "cmds";
+      cmds.maxLength = "9";
+      newTerminalPR.className = "error";
+
+      newTerminalPR.innerHTML = `<span class="answer">${unValue} : Le terme ${unValue} n'est pas reconnu comme nom d'applet de commande, fonction, fichier de script ou programme
+exécutable. Vérifiez l'orthographe du nom, ou si un chemin d'accès existe, vérifiez que le chemin d'accès est correct
+et réessayez.<br>
+Au caractère Ligne:1 : 1<br>
++ <span style="letter-spacing: 2px">${unValue.toUpperCase()}</span><br>
++ ${"~".repeat(unValue.length)}<br>
+    + CategoryInfo          : ObjectNotFound: (${unValue}:${typeof unValue}) [], CommandNotFoundException<br>
+    + FullyQualifiedErrorId : CommandNotFoundException</span>`;
+      cd.textContent = oldCd.textContent;
+
+      base.append(newTerminalPR);
+      base.append(inputLine);
+      inputLine.append(cd);
+      inputLine.append(cursor);
+      inputLine.append(cmds);
+
+      cmds.focus();
     }
   }
 });
