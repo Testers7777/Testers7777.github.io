@@ -154,10 +154,10 @@ I tend to lose interest quickly.`,
 exécutable. Vérifiez l'orthographe du nom, ou si un chemin d'accès existe, vérifiez que le chemin d'accès est correct
 et réessayez.<br>
 Au caractère Ligne:1 : 1<br>
-+ <span style="letter-spacing: 2px">${unValue.toUpperCase()}<br>
++ <span style="letter-spacing: 2px">${unValue.toUpperCase()}</span><br>
 + ${"~".repeat(unValue.length)}<br>
     + CategoryInfo          : ObjectNotFound: (${unValue}:${typeof unValue}) [], CommandNotFoundException<br>
-    + FullyQualifiedErrorId : CommandNotFoundException</span>`;
+    + FullyQualifiedErrorId : CommandNotFoundException`;
       cd.textContent = oldCd.textContent;
 
       base.append(newTerminalPR);
