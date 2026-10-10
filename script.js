@@ -148,13 +148,13 @@ I tend to lose interest quickly.`,
       cursor.className = "cursor";
       cmds.className = "cmds";
       cmds.maxLength = "9";
-      newTerminalPR.className = "error";
+      newTerminalPR.className = "error answer";
 
-      newTerminalPR.innerHTML = `<span class="answer">${unValue} : Le terme ${unValue} n'est pas reconnu comme nom d'applet de commande, fonction, fichier de script ou programme
+      newTerminalPR.innerHTML = `${unValue} : Le terme ${unValue} n'est pas reconnu comme nom d'applet de commande, fonction, fichier de script ou programme
 exécutable. Vérifiez l'orthographe du nom, ou si un chemin d'accès existe, vérifiez que le chemin d'accès est correct
 et réessayez.<br>
 Au caractère Ligne:1 : 1<br>
-+ <span style="letter-spacing: 2px">${unValue.toUpperCase()}</span><br>
++ <span style="letter-spacing: 2px">${unValue.toUpperCase()}<br>
 + ${"~".repeat(unValue.length)}<br>
     + CategoryInfo          : ObjectNotFound: (${unValue}:${typeof unValue}) [], CommandNotFoundException<br>
     + FullyQualifiedErrorId : CommandNotFoundException</span>`;
